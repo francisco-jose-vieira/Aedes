@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+main {
+    display: flex;
+    width: 100vw;
+    background-color: #3C734F;
+
+}
+
+.main-left {
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 0 20px 20px 0;
+
+    & h1 {
+        text-align: center;
+        position: relative;
+        font-size: 60px;
+        right: 100px;
+        bottom: 30px;
+    }
+
+    & img {
+        width: 50%;
+        position: relative;
+        right: 50px;
+    }
+}
+
+.main-right {
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.bem-vindo {
+    font-size: 28px;
+    color: white;
+    font-family: "Lato", sans-serif;
+}
+
+.input {
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 50%;
+    color: white;
+    
+    & input {
+        padding: 6px;
+        border-radius: 8px;
+        border: none;
+        outline: none;
+    }
+}
+
+.esqueceu-Senha {
+    color: white;
+    margin-top: 3px;
+    margin-bottom: 50px;
+    position: relative;
+    font-size: 15px;
+    right: 16%;
+    opacity: 0.5;
+}
+
+.esqueceu-Senha:hover {
+    cursor: pointer;
+}
+
+button {
+    padding: 10px 45px;
+    border-radius: 10px;
+    border: none;
+    background-color: #C7E8D0;
+    font-size: 15px;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: #c7e8d077;
+}
+
+.wave {
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+}  
+
+@media screen and (max-width: 450px) {
+    main {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+    }
+
+    .main-left {
+        display: flex;
+        flex-direction: row;
+        width: 100vw;
+        height: 300px;
+        border-radius: 0 0 20px 20px;
+
+        & h1 {
+            font-size: 40px;
+            position: relative;
+            left: 0;
+        }
+
+        & img {
+            position: relative;
+            left: 50px;
+        }
+    }
+
+    .main-right {
+        width: 100vw;
+        height: 100%;
+    }
+
+    .esqueceu-Senha {
+        position: relative;
+        left: 1px;
+        
+    }
+}

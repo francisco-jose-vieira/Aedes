@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=League+Spartan:wght@100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden
+}
+
+body {
+    background-image: url('imgs/background.png');
+    background-size: cover;
+    /* Ajusta a imagem para cobrir todo o background */
+    background-repeat: no-repeat;
+    /* Evita que a imagem se repita */
+    background-position: center;
+    /* Centraliza a imagem */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: #3C734F;
+    padding: 10px 0;
+    width: 100vw;
+}
+
+
+ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 40px;
+    margin-left: 90px;
+}
+
+li {
+    font-size: 30px;
+    list-style: none;
+    font-family: "Lato", sans-serif;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+li:hover {
+    background-color: white;
+    color: #3C734F;
+    cursor: pointer;
+
+}
+
+nav img {
+    width: 50px;
+    height: 50px;
+    margin-right: 30px;
+}
+
+nav img:hover {
+    cursor: pointer;
+}
+
+main {
+    display: flex;
+    width: 100vw;
+}
+
+.main-left {
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & img {
+        width: 60%;
+        height: 60%;
+    }
+
+    & p {
+        font-size: 60px;
+        text-align: center;
+        margin-top: 20px;
+    }
+}
+
+.main-right {
+    width: 50%;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & h2 {
+        font-size: 80px;
+        font-weight: bold;
+        position: relative;
+        top: 20px;
+        right: 110px;
+        font-family: "League Spartan", sans-serif;
+    }
+}
+
+/* Celular */
+@media screen and (max-width: 450px){
+    ul {
+        margin: 0;
+        gap: 0;
+    }
+
+    li {
+        font-size: 20px;
+    }
+
+    main {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .main-left {
+        width: 100vw;
+        height: 100%;
+    }
+
+    .main-right {
+        width: 100vw;
+        height: 100%;
+        padding: 50px;
+    }
+}
+
+/* Tablet e Notebook */
+@media screen and (max-width: 1024px){
+    .main-right h2 {
+        font-size: 60px;
+        position: relative;
+        left: 10px;
+    }
+
+    .main-left img {
+        width: 70%;
+        height: 50%;
+    }
+}
