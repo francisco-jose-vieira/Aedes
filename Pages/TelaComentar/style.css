@@ -120,3 +120,20 @@ button:hover {
     cursor: pointer;
     background-color: #3c734fb8;
 }
+
+@media screen and (max-width: 450px) {
+    main {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .left {
+        width: 100%;
+        height: 50%;
+    }
+
+    .right {
+        width: 100%;
+        height: 50%;
+    }
+}
