@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=League+Spartan:wght@100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden
+}
+
+a {
+    text-decoration: none
+}
+
+body {
+    background-image: url('imgs/background.png');
+    background-size: cover;
+    /* Ajusta a imagem para cobrir todo o background */
+    background-repeat: no-repeat;
+    /* Evita que a imagem se repita */
+    background-position: center;
+    /* Centraliza a imagem */
+}
+
+nav {
+    display: flex;
+    justify-content: end;
+    background-color: #3C734F;
+    padding: 10px 0;
+    width: 100vw;
+}
+
+
+ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 30px;
+    margin-right: 40px;
+}
+
+li {
+    font-size: 25px;
+    font-family: "Lato", sans-serif;
+}
+
+.entrar {
+    border: 2px solid white;
+    border-radius: 30px;
+    padding: 8px 15px;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.entrar:hover {
+    background-color: white;
+    color: #3C734F;
+    cursor: pointer;
+}
+
+.cadastre {
+    border: 2px solid white;
+    border-radius: 30px;
+    padding: 8px 15px;
+    color: #3C734F;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+.cadastre:hover {
+    background-color: #3C734F;
+    color: white;
+    cursor: pointer;
+}
+
+
+
+
+main {
+    display: flex;
+    width: 100vw;
+}
+
+.main-left {
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & img {
+        width: 60%;
+        height: 60%;
+    }
+
+    & p {
+        font-size: 60px;
+        text-align: center;
+        margin-top: 20px;
+    }
+}
+
+.main-right {
+    width: 50%;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & h2 {
+        font-size: 80px;
+        font-weight: bold;
+        position: relative;
+        top: 20px;
+        right: 110px;
+        font-family: "League Spartan", sans-serif;
+    }
+}
+
+/* Celular */
+@media screen and (max-width: 450px){
+
+    nav {
+        display: flex;
+        justify-content: center;
+    }
+    
+    ul {
+        margin-right: 0;
+        gap: 10px;
+    }
+
+    main {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .main-left {
+        width: 100vw;
+        height: 100%;
+    }
+
+    .main-right {
+        width: 100vw;
+        height: 100%;
+        padding: 50px;
+    }
+}
+
+/* Tablet e Notebook */
+@media screen and (max-width: 1024px){
+    .main-right h2 {
+        font-size: 60px;
+        position: relative;
+        left: 10px;
+    }
+
+    .main-left img {
+        width: 70%;
+        height: 50%;
+    }
+}
