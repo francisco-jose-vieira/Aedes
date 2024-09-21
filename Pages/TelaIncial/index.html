@@ -5,35 +5,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Aedes Chat</title>
 </head>
 
 <body>
-    <nav>
-        <ul>
-            <li>Início</li>
-            <a href="../Comentarios/index.html"> <li>Fórum</li> </a>
-            <li>Informações</li>
-        </ul>
+    <div class="container">
+        <nav>
+            <ul>
+                <li>Início</li>
+                <a href="../Comentarios/index.html">
+                    <li>Fórum</li>
+                </a>
+                <a href="#grafico">
+                    <li>Informações</li>
+                </a>
+            </ul>
+            <a href="../TelaLogin/index.html">
+                <img src="imgs/imgPerfil.png" alt="">
+            </a>
+        </nav>
+        <main>
+            <div class="main-left">
+                <p>Aedes <br> Chat</p>
+                <img src="imgs/imgDoctor.png" alt="">
+            </div>
+            <div class="main-right">
+                <h2>Proteja sua <br> saúde, <br>
+                    combata o <br>
+                    Aedes.
+                </h2>
+            </div>
+        </main>
+        <a href="#grafico"><img class="arrow" src="imgs/arrow.svg" alt=""></a>
 
-        <a href="../TelaLogin/index.html">
-            <img src="imgs/imgPerfil.png" alt="">
-        </a>
-    </nav>
+    </div>
 
-    <main>
-        <div class="main-left">
-            <p>Aedes <br> Chat</p>
-            <img src="imgs/imgDoctor.png" alt="">
+    <div class="containerGrafico" id="grafico">
+        <div class="graficoLeft">
+            <canvas id="meuGrafico" width="400" height="200"></canvas>
         </div>
-
-        <div class="main-right">
-            <h2>Proteja sua <br> saúde, <br>
-                combata o <br>
-                Aedes.
-            </h2>
+        <div class="graficoRight">
+            <p>A dengue é uma doença transmitida pelo mosquito Aedes aegypti e continua sendo um grave problema de saúde pública no Brasil. Em 2024, o país registrou um aumento significativo no número de casos, com diversas regiões enfrentando surtos. Segundo o Ministério da Saúde, o estado com o maior número de incidência foi o Distrito Federal e o com o menor número foi o estado de Roraima. Esse crescimento ressalta a importância de medidas preventivas, como a eliminação de criadouros e o uso de repelentes, para controlar a disseminação da doença.</p>
         </div>
-    </main>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 
 </html>

@@ -11,7 +11,11 @@ a {
     text-decoration: none
 }
 
-body {
+html {
+    scroll-behavior: smooth;
+}
+
+.container {
     background-image: url('imgs/background.png');
     background-size: cover;
     /* Ajusta a imagem para cobrir todo o background */
@@ -106,6 +110,38 @@ main {
         right: 110px;
         font-family: "League Spartan", sans-serif;
     }
+}
+
+.arrow {
+    position: absolute;
+    left: 50%;
+    bottom: 0.8px;
+}
+
+.containerGrafico {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+
+.graficoLeft {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 50px;
+}
+
+.graficoRight {
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    font-size: 28px;
+    text-align: justify;
+
+    
 }
 
 /* Celular */
