@@ -14,6 +14,10 @@ main {
 
 }
 
+#credencial-invalida {
+    display: none;
+}
+
 .main-left {
     width: 50%;
     height: 100vh;
