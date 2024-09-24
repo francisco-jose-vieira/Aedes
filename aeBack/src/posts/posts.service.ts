@@ -18,7 +18,7 @@ export class PostsService {
     );
   }
 
-  async create(createPostDto: CreatePostDto): Promise<Post> {
+  async create(createPostDto: CreatePostDto): Promise<Post> { //Cria posts -> os insere no BD
     const bd = await this.pool.connect();
     try{
       const postCriado = await bd.query(`
@@ -30,21 +30,22 @@ export class PostsService {
     }
   }
 
-  async getPosts(): Promise<Post[]> {
+  async getPosts(): Promise<Post[]> { //retorna todos os Posts do BD
     const bd = await this.pool.connect();
     try{
-      const resultado = await bd.query('SELECT * FROM posts');
+      const resultado = await bd.query('SELECT * FROM posts ORDER BY date_published DESC');
       return resultado.rows;
     }finally{
       bd.release();
     }
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} post`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} post`;
+  async removePosts(Postid: number): Promise<void> { //Remove posts da BD
+    const bd = await this.pool.connect();
+    try{
+      const resultado = await bd.query(`DELETE FROM posts WHERE id = $1`, [Postid]);
+    }finally{
+      bd.release();
+    }
   }
 }

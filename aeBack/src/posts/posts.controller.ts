@@ -16,13 +16,8 @@ export class PostsController {
     return this.postsService.getPosts();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.postsService.findOne(+id);
-  }
-
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.postsService.remove(+id);
+    return this.postsService.removePosts(+id);
   }
 }

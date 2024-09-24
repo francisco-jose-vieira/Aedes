@@ -19,7 +19,7 @@ export class UserService { //Serviços da aplicação
     );
   }
 
-  async getUsuarios(): Promise<User[]> {
+  async getUsuarios(): Promise<User[]> { //Retorna todos os usuários
     const bd = await this.pool.connect();
     try{
       const resultado = await bd.query('SELECT * FROM users')
@@ -29,7 +29,7 @@ export class UserService { //Serviços da aplicação
     }
   }
 
-  async getUsuario(id: Number): Promise<User>{
+  async getUsuario(id: Number): Promise<User>{//Retorna apenas um usuário pelo id
     const bd = await this.pool.connect();
     try{
       const resultado = await bd.query('SELECT * FROM users WHERE id = $1', [id]);
@@ -39,7 +39,8 @@ export class UserService { //Serviços da aplicação
     }
   }
 
-  async login(email: String, password: String): Promise<User>{ //< > -> tipo entities
+  async login(email: String, password: String): Promise<User>{ //Login -> requisão email e senha
+    //< > -> tipo entities
     const bd = await this.pool.connect();
     try{
       const usuarioRequisitado = await bd.query('SELECT * FROM users WHERE email = $1', [email]);
@@ -55,7 +56,7 @@ export class UserService { //Serviços da aplicação
     }
   }
 
-  async criarUsuario(createUserDto: createUsuarioDto): Promise<User>{
+  async criarUsuario(createUserDto: createUsuarioDto): Promise<User>{ //Cadastro de usuário -> INSERT no BD
     const bd = await this.pool.connect();
     try{
       const usuarioCriado = await bd.query(`
