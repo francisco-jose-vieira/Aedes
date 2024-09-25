@@ -57,7 +57,7 @@ export class PostsService {
               posts
           JOIN
               users ON posts.user_id = users.id
-          ORDER BY posts.date_published DESC`, [Postid]);
+          ORDER BY posts.date_published DESC`, []);
       }
       else{
         resultado = await bd.query(
@@ -71,6 +71,7 @@ export class PostsService {
               posts
           JOIN
               users ON posts.user_id = users.id
+          WHERE posts.parent_post_id = $1
           ORDER BY posts.date_published DESC`, [Postid]);
       }
       return resultado.rows;

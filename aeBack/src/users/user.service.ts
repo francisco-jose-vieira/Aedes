@@ -4,7 +4,7 @@ import { User } from './entities/users.entities';
 import { createUsuarioDto } from './dto/create-user.dto';
 
 @Injectable()
-export class UserService { //Serviços da aplicação
+export class UserService { 
 
   private pool: Pool;
 
