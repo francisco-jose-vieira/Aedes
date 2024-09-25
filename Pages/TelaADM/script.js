@@ -59,7 +59,6 @@ function abrirModal(id_post) {
       else if(e.target.id == 'enviar'){
          delete_comment(id_post)
          modal.classList.remove('abrir')
-         fetch_posts()
       }
    })
 }

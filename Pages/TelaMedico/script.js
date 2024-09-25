@@ -55,7 +55,7 @@ async function post_comment(parent_post_id, content) {
     }
 }
 
-function abrirModal(id_usuario) {
+function abrirModal(id_post) {
     const modal = document.getElementById("modal")
     modal.classList.add('abrir')
  
@@ -66,12 +66,12 @@ function abrirModal(id_usuario) {
         else if (e.target.id == 'enviar'){
         const text_field = document.getElementById("text-area-comment")
         const content = text_field.value
-        post_comment(id_usuario, content)
+        post_comment(id_post, content)
         text_field.value = ""
         modal.classList.remove('abrir')
         }
     })
-} 
+}
 
 document.getElementById("user-name").innerText = localStorage.getItem("user_name")
 

@@ -25,6 +25,8 @@ function add_posts(response_json)
     }
 }
 
+// document.getElementById("user-name").innerText = localStorage.getItem("user_name")
+
 try {
     const options = {
         method: 'GET',
