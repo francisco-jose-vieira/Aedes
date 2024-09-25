@@ -9,8 +9,8 @@ async function login(event) {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({email, password})
-          };
-          
+        };
+        
         fetch('http://localhost:3000/users/login', options)
             .then(response => {
                 if(!response.ok) {
@@ -21,8 +21,24 @@ async function login(event) {
             })
             .then(response => {
                 console.log(response)
-                localStorage.setItem('userdata', response);
-                window.location.href = "../Comentarios/index.html";
+                localStorage.setItem('user_id', response.id);
+                localStorage.setItem('user_name', response.display_name)
+                localStorage.setItem('user_type', response.user_type)
+                // console.log(localStorage.getItem('user_id'))
+                // console.log(localStorage.getItem('user_type'))
+                // console.log(localStorage.getItem('user_name'))
+                
+                const user_type = localStorage.getItem('user_type')
+
+                if (user_type == "normal"){
+                    window.location.href = "/Comentarios/index.html";
+                }
+                else if (user_type == "admin"){
+                    window.location.href = "/TelaADM/index.html";
+                }
+                else{
+                    window.location.href = "/TelaMedico/index.html";
+                }
             })
             .catch(err => console.error(err));
     } catch (error) {

@@ -9,7 +9,7 @@ function add_posts(response_json)
             <div class="commit">
                 <div class="commit-left">
                     <img class="imgPerfil" src="imgs/imgPerfil.svg" alt="">
-                    ${postdata.user_id}
+                    ${postdata.author_name}
                     <div>
                         <img src="imgs/like.png" alt="">
                         <img src="imgs/dislike.png" alt="">
@@ -30,28 +30,24 @@ function add_posts(response_json)
 
 async function post_comment(parent_post_id, content) {
 
-    const = document.getElementById('email').value;
-    const password = document.getElementById('senha').value;
+    const user_id = localStorage.getItem("user_id")
 
     try {
         const options = {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({a, password})
+            body: JSON.stringify({user_id, content, parent_post_id})
           };
           
-        fetch('http://localhost:3000/users/login', options)
+        fetch('http://localhost:3000/posts', options)
             .then(response => {
                 if(!response.ok) {
-                    document.getElementById('credencial-invalida').style.display = 'inline';
-                    throw new error('usuário ou senha incorretos')
+                    throw new error('erro no processamento dos dados')
                 }
                 return response.json()
             })
             .then(response => {
                 console.log(response)
-                localStorage.setItem('userdata', response);
-                window.location.href = "../Comentarios/index.html";
             })
             .catch(err => console.error(err));
     } catch (error) {
@@ -67,11 +63,21 @@ function abrirModal(id_usuario) {
          if(e.target.id == 'fechar') {
              modal.classList.remove('abrir')
          }
-         else{
-             
+         else if (e.target.id == 'enviar'){
+            const text_field = document.getElementById("text-area-comment")
+            const content = text_field.value
+            post_comment(id_usuario, content)
+            text_field.value = ""
+            modal.classList.remove('abrir')
          }
     })
  } 
+
+document.getElementById("user-name").innerText = localStorage.getItem("user_name")
+
+// console.log(localStorage.getItem('user_id'))
+// console.log(localStorage.getItem('user_name'))
+// console.log(localStorage.getItem('user_type'))
 
 try {
     const options = {

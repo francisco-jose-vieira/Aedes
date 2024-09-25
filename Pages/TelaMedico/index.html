@@ -17,12 +17,13 @@
         </ul>
 
         <a href="../TelaLogin/index.html">
+            <a id="user-name"></a>
             <img src="imgs/imgPerfil.png" alt="">
         </a>
     </nav>
 
     <main>
-        <div class="container">
+        <div class="container", id="container-posts">
 
             <div class="commit">
                 <div class="commit-left">
@@ -130,19 +131,18 @@
                 </div>
 
                 <div class="modal-bottom">
-                    <textarea name="" id=""></textarea>
+                    <textarea name="" id="text-area-comment"></textarea>
                 </div>
             </div>
 
             <div class="btn-style">
                 <button onclick="fecharModal()" id="fechar" class="fechar" type="submit">Fechar</button>
 
-                <button type="submit">Enviar</button>
+                <button type="submit", id="enviar">Enviar</button>
             </div>
         </div>
 
     </div>
-
 
     <script src="script.js"></script>
 </body>
