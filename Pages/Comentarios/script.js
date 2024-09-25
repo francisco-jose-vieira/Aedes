@@ -4,18 +4,13 @@ try {
         headers: {'Content-Type': 'application/json'}
         };
         
-    fetch('http://localhost:3000/posts/null', options)
+    fetch('http://localhost:3000/posts/0', options)
         .then(response => {
-            if(!response.ok) {
-                document.getElementById('credencial-invalida').style.display = 'inline';
-                throw new error('usuário ou senha incorretos')
-            }
             return response.json()
         })
         .then(response => {
             console.log(response)
-            localStorage.setItem('userdata', response);
-            window.location.href = "../Comentarios/index.html";
+
         })
         .catch(err => console.error(err));
 } catch (error) {

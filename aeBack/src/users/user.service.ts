@@ -12,23 +12,14 @@ export class UserService { //Serviços da aplicação
     this.pool = new Pool({
       host: 'localhost',
       port: 5432,
-      user: 'lazuli',
-      password: 'rainewhispers',
+      user: 'postgres',
+      password: 'l3v11234',
       database: 'forum_db'
     }
     );
   }
 
-  async getUsuarios(): Promise<User[]> { //Retorna todos os usuários
-    const bd = await this.pool.connect();
-    try{
-      const resultado = await bd.query('SELECT * FROM users')
-      return resultado.rows;
-    }finally{
-      bd.release();
-    }
-  }
-
+  
   async getUsuario(id: Number): Promise<User>{//Retorna apenas um usuário pelo id
     const bd = await this.pool.connect();
     try{

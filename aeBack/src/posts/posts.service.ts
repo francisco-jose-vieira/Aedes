@@ -43,15 +43,35 @@ export class PostsService {
   async getChildren(Postid: number): Promise<Post[]> { //retorna todos os Posts do BD com pai específico
     const bd = await this.pool.connect();
 
+    let resultado
     try{
-      let resultado;
-      if(Postid == null){
+      if(Postid === 0){
         resultado = await bd.query(
-          `SELECT * FROM posts WHERE parent_post_id is NULL ORDER BY date_published DESC`, [Postid]);
+          `SELECT 
+              posts.id,
+              posts.content,
+              posts.date_published,
+              posts.parent_post_id,
+              users.display_name AS author_name
+          FROM 
+              posts
+          JOIN
+              users ON posts.user_id = users.id
+          ORDER BY posts.date_published DESC`, [Postid]);
       }
       else{
         resultado = await bd.query(
-          `SELECT * FROM posts WHERE parent_post_id = $1 ORDER BY date_published DESC`, [Postid]);
+          `SELECT 
+              posts.id,
+              posts.content,
+              posts.date_published,
+              posts.parent_post_id,
+              users.display_name AS author_name
+          FROM 
+              posts
+          JOIN
+              users ON posts.user_id = users.id
+          ORDER BY posts.date_published DESC`, [Postid]);
       }
       return resultado.rows;
     }finally{

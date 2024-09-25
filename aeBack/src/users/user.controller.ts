@@ -8,11 +8,6 @@ import { createUsuarioDto } from './dto/create-user.dto';
 export class UserController {
   constructor(private readonly UserService: UserService) {}
 
-  @Get() //Quando esta sem parametro, pega a rota do coontroller = users
-  async getUsuarios(): Promise<User[]> { //Controlador da aplicação
-    return this.UserService.getUsuarios();
-  }
-
   @Get(':id')//quando esta com parametro, ele pegara a rota do controller + a do parametro = users/:id
   async getUsuario(@Param('id') id: string): Promise<User>{
     return this.UserService.getUsuario(Number(id));
