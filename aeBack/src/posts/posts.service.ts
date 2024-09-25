@@ -43,13 +43,14 @@ export class PostsService {
   async getChildren(Postid: number): Promise<Post[]> { //retorna todos os Posts do BD com pai específico
     const bd = await this.pool.connect();
 
+    let resultado
     try{
-      if(Postid == "null"){
-        const resultado = await bd.query(
-          `SELECT * FROM posts WHERE parent_post_id is NULL ORDER BY date_published DESC`, [Postid]);
+      if(Postid === 0){
+        resultado = await bd.query(
+          `SELECT * FROM posts WHERE parent_post_id is NULL ORDER BY date_published DESC`, []);
       }
       else{
-        const resultado = await bd.query(
+        resultado = await bd.query(
           `SELECT * FROM posts WHERE parent_post_id = $1 ORDER BY date_published DESC`, [Postid]);
       }
       return resultado.rows;
