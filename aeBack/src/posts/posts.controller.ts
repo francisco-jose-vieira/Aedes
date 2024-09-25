@@ -16,6 +16,11 @@ export class PostsController {
     return this.postsService.getPosts();
   }
 
+  @Get(':id')
+  findChildren(@Param('id') id: string) {
+    return this.postsService.getChildren(+id);
+  }
+
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.postsService.removePosts(+id);

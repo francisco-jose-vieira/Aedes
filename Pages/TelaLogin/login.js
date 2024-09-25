@@ -2,13 +2,13 @@ async function login(event) {
     event.preventDefault();
 
     const email = document.getElementById('email').value;
-    const senha = document.getElementById('senha').value;
+    const password = document.getElementById('senha').value;
 
     try {
         const options = {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
-            body: `{"email":"${email}","password":"${senha}"}`
+            body: JSON.stringify({email, password})
           };
           
         fetch('http://localhost:3000/users/login', options)
@@ -21,6 +21,8 @@ async function login(event) {
             })
             .then(response => {
                 console.log(response)
+                localStorage.setItem('userdata', response);
+                window.location.href = "../Comentarios/index.html";
             })
             .catch(err => console.error(err));
     } catch (error) {

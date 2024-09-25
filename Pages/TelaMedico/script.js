@@ -8,3 +8,29 @@ function abrirModal() {
       }
    })
 }
+
+async function fetch_comments(event) {
+   event.preventDefault();
+
+   try {
+       const options = {
+           method: 'GET',
+           headers: {'Content-Type': 'application/json'},
+         };
+         
+       fetch('http://localhost:3000/users/login', options)
+           .then(response => {
+               if(!response.ok) {
+                   document.getElementById('credencial-invalida').style.display = 'inline';
+                   throw new error('usuário ou senha incorretos')
+               }
+               return response.json()
+           })
+           .then(response => {
+               console.log(response)
+           })
+           .catch(err => console.error(err));
+   } catch (error) {
+       console.error('Erro na requisição')
+   }
+}

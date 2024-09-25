@@ -12,8 +12,8 @@ export class UserService { //Serviços da aplicação
     this.pool = new Pool({
       host: 'localhost',
       port: 5432,
-      user: 'postgres',
-      password: 'l3v11234',
+      user: 'lazuli',
+      password: 'rainewhispers',
       database: 'forum_db'
     }
     );

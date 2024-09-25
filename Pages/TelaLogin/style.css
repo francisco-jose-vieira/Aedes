@@ -144,3 +144,7 @@ button:hover {
         
     }
 }
+
+#credencial-invalida {
+    color: red;
+}

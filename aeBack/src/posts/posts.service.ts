@@ -11,8 +11,8 @@ export class PostsService {
     this.pool = new Pool({
       host: 'localhost',
       port: 5432,
-      user: 'postgres',
-      password: 'l3v11234',
+      user: 'lazuli',
+      password: 'rainewhispers',
       database: 'forum_db'
     }
     );
@@ -30,10 +30,28 @@ export class PostsService {
     }
   }
 
-  async getPosts(): Promise<Post[]> { //retorna todos os Posts do BD
+  async getPosts(): Promise<Post[]> { //retorna todos os Posts do BD com pai específico
     const bd = await this.pool.connect();
     try{
       const resultado = await bd.query('SELECT * FROM posts ORDER BY date_published DESC');
+      return resultado.rows;
+    }finally{
+      bd.release();
+    }
+  }
+
+  async getChildren(Postid: number): Promise<Post[]> { //retorna todos os Posts do BD com pai específico
+    const bd = await this.pool.connect();
+
+    try{
+      if(Postid == "null"){
+        const resultado = await bd.query(
+          `SELECT * FROM posts WHERE parent_post_id is NULL ORDER BY date_published DESC`, [Postid]);
+      }
+      else{
+        const resultado = await bd.query(
+          `SELECT * FROM posts WHERE parent_post_id = $1 ORDER BY date_published DESC`, [Postid]);
+      }
       return resultado.rows;
     }finally{
       bd.release();
