@@ -60,24 +60,20 @@ function abrirModal(id_usuario) {
     modal.classList.add('abrir')
  
     modal.addEventListener('click', (e) => {
-         if(e.target.id == 'fechar') {
-             modal.classList.remove('abrir')
-         }
-         else if (e.target.id == 'enviar'){
-            const text_field = document.getElementById("text-area-comment")
-            const content = text_field.value
-            post_comment(id_usuario, content)
-            text_field.value = ""
+        if(e.target.id == 'fechar') {
             modal.classList.remove('abrir')
-         }
+        }
+        else if (e.target.id == 'enviar'){
+        const text_field = document.getElementById("text-area-comment")
+        const content = text_field.value
+        post_comment(id_usuario, content)
+        text_field.value = ""
+        modal.classList.remove('abrir')
+        }
     })
- } 
+} 
 
 document.getElementById("user-name").innerText = localStorage.getItem("user_name")
-
-// console.log(localStorage.getItem('user_id'))
-// console.log(localStorage.getItem('user_name'))
-// console.log(localStorage.getItem('user_type'))
 
 try {
     const options = {

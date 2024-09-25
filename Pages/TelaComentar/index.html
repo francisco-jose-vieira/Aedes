@@ -12,16 +12,17 @@
 
     <nav>
         <ul>
-            <a href="../TelaIncial/index.html">
+            <a href="/TelaIncial/index.html">
                 <li>Início</li>
             </a>
-            <a href="../Comentarios/index.html">
+            <a href="/Comentarios/index.html">
                 <li>Fórum</li>
             </a>
             <li>Informações</li>
         </ul>
 
-        <a href="../TelaLogin/index.html">
+        <a href="/TelaLogin/index.html">
+            <a id="user-name"></a>
             <img src="imgs/imgPerfil.png" alt="">
         </a>
     </nav>
@@ -53,16 +54,15 @@
         <div class="right">
             <div class="commit">
                 <h2>Comentário</h2>
-                <textarea name="" id=""></textarea>
+                <textarea name="" id="text-area-comment"></textarea>
             </div>
             <div class="button">
-                <button type="submit">Enviar</button>
+                <button type="submit" onclick="post_post()">Enviar</button>
             </div>
         </div>
     </main>
 
-
-
+    <script src="script.js"></script>
 </body>
 
 </html>

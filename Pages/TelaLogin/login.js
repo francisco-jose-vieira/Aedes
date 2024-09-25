@@ -21,12 +21,9 @@ async function login(event) {
             })
             .then(response => {
                 console.log(response)
-                localStorage.setItem('user_id', response.id);
+                localStorage.setItem('user_id', response.id)
                 localStorage.setItem('user_name', response.display_name)
                 localStorage.setItem('user_type', response.user_type)
-                // console.log(localStorage.getItem('user_id'))
-                // console.log(localStorage.getItem('user_type'))
-                // console.log(localStorage.getItem('user_name'))
                 
                 const user_type = localStorage.getItem('user_type')
 
