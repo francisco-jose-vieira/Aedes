@@ -12,20 +12,21 @@
 
     <nav>
         <ul>
-            <a href="../TelaIncial/index.html">
+            <a href="/TelaIncial/index.html">
                 <li>Início</li>
             </a>
             <li>Fórum</li>
             <li>Informações</li>
         </ul>
 
-        <a href="../TelaLogin/index.html">
+        <a href="/TelaLogin/index.html">
+            <a id="user-name"></a>
             <img src="imgs/imgPerfil.png" alt="">
         </a>
     </nav>
 
     <main>
-        <div class="container">
+        <div class="container" id="container-posts">
 
             <div class="commit">
                 <div class="commit-left">
@@ -133,7 +134,7 @@
 
             <div class="btn-adm">
                 <button onclick="fecharAviso()" id="cancelar" type="submit">Cancelar</button>
-                <button type="submit">Excluir</button>
+                <button type="submit" id="enviar">Excluir</button>
             </div>
         </div>
 
