@@ -2,15 +2,15 @@ function add_posts(response_json)
 {
     const container = document.getElementById("container-posts")
     container.innerHTML = ''
-    
+
     for (var i=0; i<response_json.length; i++){
         let postdata = response_json[i]
         container.innerHTML += `
             <div class="commit">
                 <div class="commit-left">
                     <img class="imgPerfil" src="imgs/imgPerfil.svg" alt="">
+                    ${postdata.user_id}
                     <div>
-                        ${postdata.user_id}
                         <img src="imgs/like.png" alt="">
                         <img src="imgs/dislike.png" alt="">
                     </div>
@@ -43,23 +43,3 @@ try {
 } catch (error) {
     console.error('Erro na requisição')
 }
-
-
-
-`<div class="commit">
-    <div class="commit-left">
-        <img class="imgPerfil" src="imgs/imgPerfil.svg" alt="">
-        <div>
-            $1
-            <img src="imgs/like.png" alt="">
-            <img src="imgs/dislike.png" alt="">
-        </div>
-    </div>
-
-    <div class="commit-right">
-        <p>
-            $2
-        </p>
-    </div>
-</div>
-`
