@@ -9,7 +9,7 @@ function add_posts(response_json)
             <div class="commit">
                 <div class="commit-left">
                     <img class="imgPerfil" src="imgs/imgPerfil.svg" alt="">
-                    ${postdata.user_id}
+                    ${postdata.author_name}
                     <div>
                         <img src="imgs/like.png" alt="">
                         <img src="imgs/dislike.png" alt="">

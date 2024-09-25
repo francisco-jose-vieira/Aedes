@@ -11,8 +11,8 @@ export class PostsService {
     this.pool = new Pool({
       host: 'localhost',
       port: 5432,
-      user: 'postgres',
-      password: 'l3v11234',
+      user: 'lazuli',
+      password: 'rainewhispers',
       database: 'forum_db'
     }
     );
@@ -57,6 +57,7 @@ export class PostsService {
               posts
           JOIN
               users ON posts.user_id = users.id
+          WHERE posts.parent_post_id IS NULL
           ORDER BY posts.date_published DESC`, []);
       }
       else{
