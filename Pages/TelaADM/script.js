@@ -39,12 +39,6 @@ async function delete_comment(post_id) {
          
       fetch(`http://localhost:3000/posts/${post_id}`, options)
          .then(response => {
-               if(!response.ok) {
-                  throw new error('erro no processamento dos dados')
-               }
-               return response.json()
-         })
-         .then(response => {
                console.log(response)
          })
          .catch(err => console.error(err));
@@ -70,7 +64,7 @@ function abrirModal(id_post) {
    })
 }
 
-async function fetch_posts()
+function fetch_posts()
 {
    try {
       const options = {
